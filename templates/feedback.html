@@ -1,0 +1,360 @@
+{% extends 'base.html' %} {% block title %}Feedback{% endblock title %} {% block body %}
+
+<div class="container-fluid px-0 mx-0" id="img-container">
+    <img src="static/img/feedback.png" style="width:100%;">
+</div>
+
+<div class="">
+    <form method="post" action="/contact">
+        {% csrf_token %}
+        <div class="container" id="inside-form-container">
+            <div class="row w-100">
+                <div class="col d-flex justify-content-center">
+                    <div class="row w-75 justify-content-center justify-content-md-between">
+                        <div class="col col-12 col-md-3 text-center text-md-start p-1">
+                            <label for="exampleFormControlInput1" class="form-label">Name</label>
+                        </div>
+                        <div class="col col-12 col-md-6 p-1">
+                            <input type="name" required class=" form-control" id="name" name="name" placeholder="Name">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row w-100">
+                <div class="col d-flex justify-content-center">
+                    <div class="row w-75 justify-content-center justify-content-md-between">
+                        <div class="col col-12 col-md-3 text-center text-md-start p-1">
+                            <label for="exampleFormControlInput1" class="form-label">Contact Number</label>
+                        </div>
+                        <div class="col col-12 col-md-6 p-1">
+                            <input type="phone" required class="form-control" id="phone" name="phone" placeholder="0000000000">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row w-100">
+                <div class="col d-flex justify-content-center">
+                    <div class="row w-75 justify-content-center justify-content-md-between">
+                        <div class="col col-12 col-md-3 text-center text-md-start p-1">
+                            <label for="exampleFormControlInput1" class="form-label">Member ID</label>
+                        </div>
+                        <div class="col col-12 col-md-6 p-1">
+                            <input type="mid" class="form-control" id="mid" name="mid" placeholder="0000000000">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="sub row ">
+                <div class="col ">
+                    <h5 class="name text-center text-md-start">Quality of Equipements</h5>
+                </div>
+                <div class="rating col justify-content-center justify-content-md-start">
+                    <input type="radio" name="qoe" value="5">
+                    <input type="radio" name="qoe" value="4">
+                    <input type="radio" name="qoe" value="3">
+                    <input type="radio" name="qoe" value="2">
+                    <input type="radio" name="qoe" value="1">
+                </div>
+            </div>
+
+            <div class="sub row">
+                <div class="col">
+                    <h5 class="name text-center text-md-start">Maintenance of Equipements</h5>
+                </div>
+                <div class="rating col justify-content-center justify-content-md-start">
+                    <input type="radio" name="moe" value="5">
+                    <input type="radio" name="moe" value="4">
+                    <input type="radio" name="moe" value="3">
+                    <input type="radio" name="moe" value="2">
+                    <input type="radio" name="moe" value="1">
+                </div>
+            </div>
+
+            <div class="sub row">
+                <div class="col">
+                    <h5 class="name text-center text-md-start">Trainer's Behavior</h5>
+                </div>
+                <div class="rating col justify-content-center justify-content-md-start">
+                    <input type="radio" name="tb" value="5">
+                    <input type="radio" name="tb" value="4">
+                    <input type="radio" name="tb" value="3">
+                    <input type="radio" name="tb" value="2">
+                    <input type="radio" name="tb" value="1">
+                </div>
+            </div>
+
+            <div class="sub row">
+                <div class="col">
+                    <h5 class="name text-center text-md-start">Quality of Personal Training</h5>
+                </div>
+                <div class="rating col justify-content-center justify-content-md-start">
+                    <input type="radio" name="qopt" value="5">
+                    <input type="radio" name="qopt" value="4">
+                    <input type="radio" name="qopt" value="3">
+                    <input type="radio" name="qopt" value="2">
+                    <input type="radio" name="qopt" value="1">
+                </div>
+            </div>
+
+            <div class="sub row">
+                <div class="col">
+                    <h5 class="name text-center text-md-start">Nutritionist Advisor</h5>
+                </div>
+                <div class="rating col justify-content-center justify-content-md-start">
+                    <input type="radio" name="naqoe" value="5">
+                    <input type="radio" name="naqoe" value="4">
+                    <input type="radio" name="naqoe" value="3">
+                    <input type="radio" name="naqoe" value="2">
+                    <input type="radio" name="naqoe" value="1">
+                </div>
+            </div>
+
+            <div class="sub row">
+                <div class="col">
+                    <h5 class="name text-center text-md-start">Gym Music System</h5>
+                </div>
+                <div class="rating col justify-content-center justify-content-md-start">
+                    <input type="radio" name="gms" value="5">
+                    <input type="radio" name="gms" value="4">
+                    <input type="radio" name="gms" value="3">
+                    <input type="radio" name="gms" value="2">
+                    <input type="radio" name="gms" value="1">
+                </div>
+            </div>
+
+            <div class="sub row">
+                <div class="col">
+                    <h5 class="name text-center text-md-start">Gym Environment</h5>
+                </div>
+                <div class="rating col justify-content-center justify-content-md-start">
+                    <input type="radio" name="ge" value="5">
+                    <input type="radio" name="ge" value="4">
+                    <input type="radio" name="ge" value="3">
+                    <input type="radio" name="ge" value="2">
+                    <input type="radio" name="ge" value="1">
+                </div>
+            </div>
+
+            <div class="sub row">
+                <div class="col">
+                    <h5 class="name  text-center text-md-start">Health Calculator</h5>
+                </div>
+                <div class="rating col justify-content-center justify-content-md-start">
+                    <input type="radio" name="hc" value="5">
+                    <input type="radio" name="hc" value="4">
+                    <input type="radio" name="hc" value="3">
+                    <input type="radio" name="hc" value="2">
+                    <input type="radio" name="hc" value="1">
+                </div>
+            </div>
+
+
+            <div class="mb-3 row w-75">
+                <div class="col d-flex flex-column justify-content-center align-items-center align-items-md-start">
+                    <label for="remark" class="form-label">Remark</label>
+                    <textarea class="form-control" id="remark" name="remark" rows="3" cols="80" placeholder="Write your message"></textarea>
+                </div>
+            </div>
+            <button class="sub-btn">Submit</button>
+        </div>
+    </form>
+</div>
+
+
+
+
+<style>
+    body {
+        background-color: #666666;
+        background-size: 50px 50px;
+        background-image: radial-gradient(#202020 3%, transparent 5%);
+        color: white;
+    }
+    
+    .container .sub-btn {
+        padding: 8px 15px;
+        margin: 16px 0;
+        font-size: 15px;
+        font-weight: bold;
+        text-transform: uppercase;
+        border: none;
+        border-radius: 6px;
+        background: #ff0000;
+        color: #fff;
+        cursor: pointer;
+    }
+    
+    .container {
+        width: 90%;
+        position: relative;
+        background-color: #202020;
+        color: White;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: -1px -1px 2px rgba(255, 255, 255, 0.25), inset 2px 2px 5px rgba(255, 255, 255, 0.25), 8px 30px 30px rgba(0, 0, 0, 0.4), inset -2px -2px 5px rgba(0, 0, 0, 0.3);
+    }
+    
+    /* #img-container {
+        position: relative;
+        top: 10vh;
+    } */
+    
+    #inside-form-container {
+        margin-bottom: 70px;
+        position: relative;
+        top: 6vh;
+    }
+    
+    @media screen and (max-width:413px) {
+        #img-container {
+            top: 15vh;
+        }
+        #inside-form-container {
+            margin-bottom: 90px;
+            top: 10vh;
+        }
+    }
+    
+    .container .sub {
+        width: 75%;
+        display: flex;
+        justify-content: space-between;
+        /* font-size: smaller; */
+        align-items: center;
+        margin: 10px 0;
+        {
+            % comment %
+        }
+        padding-right: 10px;
+        {
+            % endcomment %
+        }
+        width:auto;
+    }
+    
+    .container .sub h5 {
+        min-width: 180px;
+        text-align: left;
+        color: white;
+        font-size: 17px;
+        font-weight: 400;
+    }
+    
+    .container .sub .rating {
+        position: relative;
+        display: flex;
+        margin: 10px 0;
+        flex-direction: row-reverse;
+        /* justify-content: center; */
+    }
+    
+    .container .sub .rating input {
+        position: relative;
+        width: 35px;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        -webkit-appearance: none;
+        appearance: none;
+        overflow: hidden;
+    }
+    
+    .container .sub .rating input::before {
+        content: '\f005';
+        position: absolute;
+        font-family: fontAwesome;
+        font-size: 24px;
+        position: absolute;
+        left: 4px;
+        color: gray;
+        transition: 0.2s;
+    }
+    
+    .container .sub .rating input:nth-child(2n + 1)::before {
+        right: 4px;
+        left: initial;
+    }
+    
+    .container .sub .rating input:hover~input::before,
+    .container .sub .rating input:hover::before,
+    .container .sub .rating input:checked~input::before,
+    .container .sub .rating input:checked::before {
+        color: #ff0000;
+    }
+    
+    {
+        % comment %
+    }
+    
+    .stars1 {
+        user-select: none;
+    }
+    
+    .fas {
+        font-size: 1.2rem;
+        color: red;
+    }
+    
+    .fas:hover {
+        cursor: pointer;
+    }
+    
+    {
+        % endcomment %
+    }
+</style>
+
+
+<script>
+    const allStars = document.querySelectorAll('.fas');
+    allStars.forEach((fas, i) => {
+        fas.onclick = function() {
+            let current_star_level = i + 1;
+            console.log(current_star_level);
+
+            allStars.forEach((fas, j) => {
+                console.log(j + 1);
+            })
+        }
+    })
+
+    function sele() {
+        QoeChoice = document.querySelector('input[name="qoe"]:checked').value
+        MoeChoice = document.querySelector('input[name="moe"]:checked').value
+        TbChoice = document.querySelector('input[name="tb"]:checked').value
+        QoptChoice = document.querySelector('input[name="qopt"]:checked').value
+        NaqoeChoice = document.querySelector('input[name="naqoe"]:checked').value
+        GmsChoice = document.querySelector('input[name="gms"]:checked').value
+        GeChoice = document.querySelector('input[name="ge"]:checked').value
+        HcChoice = document.querySelector('input[name="hc"]:checked').value
+
+        console.log('qoe : ' + QoeChoice)
+        console.log('moe : ' + MoeChoice)
+        console.log('tb : ' + TbChoice)
+        console.log('Qopt : ' + QoptChoice)
+        console.log('Naqoe : ' + NaqoeChoice)
+        console.log('Gms : ' + GmsChoice)
+        console.log('Ge : ' + GeChoice)
+        console.log('Hc : ' + HcChoice)
+
+        QoeRating = document.querySelector('input[name="qoeRating"]')
+        MoeRating = document.querySelector('input[name="moeRating"]')
+        TbRating = document.querySelector('input[name="tbRating"]')
+        QoptRating = document.querySelector('input[name="qoptRating"]')
+        NaqoeRating = document.querySelector('input[name="naqoeRating"]')
+        GmsRating = document.querySelector('input[name="gmsRating"]')
+        GeRating = document.querySelector('input[name="geRating"]')
+        HcRating = document.querySelector('input[name="hcRating"]')
+
+    }
+</script>
+
+{% endblock body %}

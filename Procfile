@@ -1,0 +1,1 @@
+web: gunicorn ShynoFitness.wsgi --log-file -

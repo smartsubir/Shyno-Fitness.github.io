@@ -1,0 +1,1541 @@
+{% extends 'base.html' %} {% block title %}Heal Calculator{% endblock title %} {% block body %}
+<h1 id="helth-heading">Health Calculator</h1>
+
+<div class="accordion">
+
+    <!--BMI calculator-->
+    <div class="accordion-item">
+        <div class="accordion-item-header">
+            BMI Calculator
+        </div>
+        <div class="accordion-item-body">
+            <div class="accordion-item-body-content">
+                <div class="hlt-cal">
+                    <div class="bmi-calculator">
+                        <div class="controls">
+                            <form>
+                                <div class="row" style="width:100%">
+                                    <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 mt-3">
+                                        <h5>Height</h5>
+                                        <input type="text" id="height1" value="" style="width:50px" />&nbsp;ft&nbsp;&nbsp;
+                                        <input type="text" id="height2" value="" style="width:50px" />&nbsp;in {% comment %}
+                                        <div class="unit">cm</div> {% endcomment %}
+                                    </div>
+
+                                    <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 mt-3">
+                                        <h5>Weight</h5>
+                                        <input type="text" id="weight" value="" style="width:50px" />&nbsp;kg {% comment %}
+                                        <div class="unit">kg</div> {% endcomment %}
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="result">
+                            <button class="calculate-btn mt-3">Calculate</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <button class="clear-btn mt-3">Clear</button>
+
+                            <div class="result-message">
+                                <span class="ans my-3">0</span> kg/m
+                                <sup>2</sup>
+                            </div>
+                            <div class="my-1 text-center bmi-status">
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--BMR calculator-->
+    <div class="accordion-item">
+        <div class="accordion-item-header">
+            BMR Calculator
+        </div>
+        <div class="accordion-item-body">
+            <div class="accordion-item-body-content">
+                <div class="hlt-cal">
+                    <div class="bmr-calculator">
+                        <div class="controls">
+                            <form>
+                                <div class="row" style="width:100%">
+                                    <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 mt-3">
+                                        <h5>Gender</h5>
+                                        <input type="radio" id="male" value="male" name="gender" checked />
+                                        <label for="male">Male</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <input type="radio" id="female" value="female" name="gender" />
+                                        <label for="female">Female</label>
+                                    </div>
+
+                                    <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 mt-3">
+                                        <h5>Age</h5>
+                                        <input type="text" id="age" value="" style="width:50px" />&nbsp;year
+                                    </div>
+
+                                    <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 mt-3">
+                                        <h5>Height</h5>
+                                        <input type="text" id="height1" value="" style="width:50px" />&nbsp;ft&nbsp;&nbsp;
+                                        <input type="text" id="height2" value="" style="width:50px" />&nbsp;in {% comment %}
+                                        <div class="unit">cm</div> {% endcomment %}
+                                    </div>
+
+                                    <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 mt-3">
+                                        <h5>Weight</h5>
+                                        <input type="text" id="weight" value="" style="width:50px" />&nbsp;kg {% comment %}
+                                        <div class="unit">kg</div> {% endcomment %}
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="result">
+                            <button class="calculate-btn mt-3">Calculate</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <button class="clear-btn mt-3">Clear</button>
+
+                            <div class="result-message">
+                                <span class="ans my-3">0</span> cal/day
+                            </div>
+                            {% comment %}
+                            <div class="error-message">
+                                <p>Invalid Input. Please enter all the details correcty.</p>
+                            </div> {% endcomment %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Calorie Intake calculator-->
+    <div class="accordion-item">
+        <div class="accordion-item-header">
+            Calorie Intake Calculator
+        </div>
+        <div class="accordion-item-body">
+            <div class="accordion-item-body-content">
+                <div class="hlt-cal">
+                    <div class="cal-calculator">
+                        <div class="controls">
+                            <form>
+                                <div class="row" style="width:100%">
+                                    <div class="col-md-12 col-lg-4 col-xl-4 mt-3">
+                                        <h5>Gender</h5>
+                                        <input type="radio" id="male" value="male" name="gender" checked />
+                                        <label for="male">Male</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <input type="radio" id="female" value="female" name="gender" />
+                                        <label for="female">Female</label>
+                                    </div>
+
+                                    <div class="col-md-12 col-lg-8 col-xl-8 mt-3">
+                                        <h5>How active are you? </h5>
+                                        <input type="radio" id="sedentary" value="sedentary" name="activity" checked />
+                                        <label for="sedentary">Sedentary</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <input type="radio" id="light" value="light" name="activity" />
+                                        <label for="light">Light Activity</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <input type="radio" id="moderate" value="moderate" name="activity" />
+                                        <label for="moderate">Moderate Activity</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <input type="radio" id="very" value="very" name="activity" />
+                                        <label for="very">Very Active</label>
+                                    </div>
+
+                                    <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 mt-3">
+                                        <h5>Age</h5>
+                                        <input type="text" id="age" value="" style="width:50px" />&nbsp;year
+                                    </div>
+
+                                    <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 mt-3">
+                                        <h5>Height</h5>
+                                        <input type="text" id="height1" value="" style="width:50px" />&nbsp;ft&nbsp;&nbsp;
+                                        <input type="text" id="height2" value="" style="width:50px" />&nbsp;in {% comment %}
+                                        <div class="unit">cm</div> {% endcomment %}
+                                    </div>
+
+                                    <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 mt-3">
+                                        <h5>Weight</h5>
+                                        <input type="text" id="weight" value="" style="width:50px" />&nbsp;kg {% comment %}
+                                        <div class="unit">kg</div> {% endcomment %}
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="result">
+                            <button class="calculate-btn mt-3">Calculate</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <button class="clear-btn mt-3">Clear</button>
+
+                            <div class="result-message">
+                                <div class="row text-center" style="width:100%">
+                                    <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 mt-3">
+                                        <h6>To maintain weight</h6><br>
+                                        <span class="ans1 my-3">0</span> cal/day
+                                    </div>
+                                    <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 mt-3">
+                                        <h6>To lose weight</h6><br>
+                                        <span class="ans2 my-3">0</span> cal/day
+                                    </div>
+                                    <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 mt-3">
+                                        <h6>To gain weight</h6><br>
+                                        <span class="ans3 my-3">0</span> cal/day
+                                    </div>
+                                </div>
+                            </div>
+                            {% comment %}
+                            <div class="error-message">
+                                <p>Invalid Input. Please enter all the details correcty.</p>
+                            </div> {% endcomment %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Protein Intake calculator-->
+    <div class="accordion-item">
+        <div class="accordion-item-header">
+            Protein Intake Calculator
+        </div>
+        <div class="accordion-item-body">
+            <div class="accordion-item-body-content">
+                <div class="hlt-cal">
+                    <div class="pro-calculator">
+                        <div class="controls">
+                            <form>
+                                <div class="row" style="width:100%">
+                                    <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 mt-3">
+                                        <h5>Age</h5>
+                                        <input type="text" id="age" value="" style="width:50px" />&nbsp;year
+                                    </div>
+
+                                    <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 mt-3">
+                                        <h5>Weight</h5>
+                                        <input type="text" id="weight" value="" style="width:50px" />&nbsp;kg {% comment %}
+                                        <div class="unit">kg</div> {% endcomment %}
+                                    </div>
+
+                                    <div class="col-md-12 col-lg-12 col-xl-12 mt-3">
+                                        <h5>How active are you? </h5>
+                                        <input type="radio" id="sedentary" value="sedentary" name="activity" checked />
+                                        <label for="sedentary">Sedentary</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <input type="radio" id="light" value="light" name="activity" />
+                                        <label for="light">Light Activity</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <input type="radio" id="moderate" value="moderate" name="activity" />
+                                        <label for="moderate">Moderate Activity</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <input type="radio" id="very" value="very" name="activity" />
+                                        <label for="very">Very Active</label>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="result">
+                            <button class="calculate-btn mt-3">Calculate</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <button class="clear-btn mt-3">Clear</button>
+
+                            <div class="result-message">
+                                <div class="row text-center" style="width:100%">
+                                    <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 mt-3">
+                                        <h6>To maintain</h6><br>
+                                        <span class="ans1 my-3">0</span> g/day
+                                    </div>
+                                    <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 mt-3">
+                                        <h6>To Build Muscle</h6><br>
+                                        <span class="ans2 my-3">0</span> g/day
+                                    </div>
+                                    <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 mt-3">
+                                        <h6>To lose weight</h6><br>
+                                        <span class="ans3 my-3">0</span> g/day
+                                    </div>
+                                </div>
+                            </div>
+                            {% comment %}
+                            <div class="error-message">
+                                <p>Invalid Input. Please enter all the details correcty.</p>
+                            </div> {% endcomment %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Carbohydrate Intake calculator-->
+    <div class="accordion-item">
+        <div class="accordion-item-header">
+            Carbohydrate Intake Calculator
+        </div>
+        <div class="accordion-item-body">
+            <div class="accordion-item-body-content">
+                <div class="hlt-cal">
+                    <div class="car-calculator">
+                        <div class="controls">
+                            <form>
+                                <div class="row" style="width:100%">
+                                    <div class="col-md-12 col-lg-4 col-xl-4 mt-3">
+                                        <h5>Gender</h5>
+                                        <input type="radio" id="male" value="male" name="gender" checked />
+                                        <label for="male">Male</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <input type="radio" id="female" value="female" name="gender" />
+                                        <label for="female">Female</label>
+                                    </div>
+
+                                    <div class="col-md-12 col-lg-8 col-xl-8 mt-3">
+                                        <h5>How active are you? </h5>
+                                        <input type="radio" id="sedentary" value="sedentary" name="activity" checked />
+                                        <label for="sedentary">Sedentary</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <input type="radio" id="light" value="light" name="activity" />
+                                        <label for="light">Light Activity</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <input type="radio" id="moderate" value="moderate" name="activity" />
+                                        <label for="moderate">Moderate Activity</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <input type="radio" id="very" value="very" name="activity" />
+                                        <label for="very">Very Active</label>
+                                    </div>
+
+                                    <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 mt-3">
+                                        <h5>Age</h5>
+                                        <input type="text" id="age" value="" style="width:50px" />&nbsp;year
+                                    </div>
+
+                                    <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 mt-3">
+                                        <h5>Height</h5>
+                                        <input type="text" id="height1" value="" style="width:50px" />&nbsp;ft&nbsp;&nbsp;
+                                        <input type="text" id="height2" value="" style="width:50px" />&nbsp;in {% comment %}
+                                        <div class="unit">cm</div> {% endcomment %}
+                                    </div>
+
+                                    <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 mt-3">
+                                        <h5>Weight</h5>
+                                        <input type="text" id="weight" value="" style="width:50px" />&nbsp;kg {% comment %}
+                                        <div class="unit">kg</div> {% endcomment %}
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="result">
+                            <button class="calculate-btn mt-3">Calculate</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <button class="clear-btn mt-3">Clear</button>
+
+                            <div class="result-message">
+                                <div class="row text-center" style="width:100%">
+                                    <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 mt-3">
+                                        <h6>To maintain weight</h6><br>
+                                        <span class="ans1 my-3">0</span> g/day
+                                    </div>
+                                    <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 mt-3">
+                                        <h6>To lose weight</h6><br>
+                                        <span class="ans2 my-3">0</span> g/day
+                                    </div>
+                                    <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 mt-3">
+                                        <h6>To gain weight</h6><br>
+                                        <span class="ans3 my-3">0</span> g/day
+                                    </div>
+                                </div>
+                            </div>
+                            {% comment %}
+                            <div class="error-message">
+                                <p>Invalid Input. Please enter all the details correcty.</p>
+                            </div> {% endcomment %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Fat Intake calculator-->
+    <div class="accordion-item">
+        <div class="accordion-item-header">
+            Fat Intake Calculator
+        </div>
+        <div class="accordion-item-body">
+            <div class="accordion-item-body-content">
+                <div class="hlt-cal">
+                    <div class="fat-calculator">
+                        <div class="controls">
+                            <form>
+                                <div class="row" style="width:100%">
+                                    <div class="col-md-12 col-lg-4 col-xl-4 mt-3">
+                                        <h5>Gender</h5>
+                                        <input type="radio" id="male" value="male" name="gender" checked />
+                                        <label for="male">Male</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <input type="radio" id="female" value="female" name="gender" />
+                                        <label for="female">Female</label>
+                                    </div>
+
+                                    <div class="col-md-12 col-lg-8 col-xl-8 mt-3">
+                                        <h5>How active are you? </h5>
+                                        <input type="radio" id="sedentary" value="sedentary" name="activity" checked />
+                                        <label for="sedentary">Sedentary</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <input type="radio" id="light" value="light" name="activity" />
+                                        <label for="light">Light Activity</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <input type="radio" id="moderate" value="moderate" name="activity" />
+                                        <label for="moderate">Moderate Activity</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <input type="radio" id="very" value="very" name="activity" />
+                                        <label for="very">Very Active</label>
+                                    </div>
+
+                                    <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 mt-3">
+                                        <h5>Age</h5>
+                                        <input type="text" id="age" value="" style="width:50px" />&nbsp;year
+                                    </div>
+
+                                    <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 mt-3">
+                                        <h5>Height</h5>
+                                        <input type="text" id="height1" value="" style="width:50px" />&nbsp;ft&nbsp;&nbsp;
+                                        <input type="text" id="height2" value="" style="width:50px" />&nbsp;in {% comment %}
+                                        <div class="unit">cm</div> {% endcomment %}
+                                    </div>
+
+                                    <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 mt-3">
+                                        <h5>Weight</h5>
+                                        <input type="text" id="weight" value="" style="width:50px" />&nbsp;kg {% comment %}
+                                        <div class="unit">kg</div> {% endcomment %}
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="result">
+                            <button class="calculate-btn mt-3">Calculate</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <button class="clear-btn mt-3">Clear</button>
+
+                            <div class="result-message">
+                                <div class="row text-center" style="width:100%">
+                                    <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 mt-3">
+                                        <h6>Total Fat Intake</h6><br>
+                                        <span class="ans1 my-3">0</span>&nbsp;to&nbsp;
+                                        <span class="ans2 my-3">0</span> g/day
+                                    </div>
+                                    <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 mt-3">
+                                        <h6>Saturated Fat</h6><br>Upto&nbsp;
+                                        <span class="ans3 my-3">0</span> g/day
+                                    </div>
+                                </div>
+                            </div>
+                            {% comment %}
+                            <div class="error-message">
+                                <p>Invalid Input. Please enter all the details correcty.</p>
+                            </div> {% endcomment %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Water Intake calculator-->
+    <div class="accordion-item">
+        <div class="accordion-item-header">
+            Water Intake Calculator
+        </div>
+        <div class="accordion-item-body">
+            <div class="accordion-item-body-content">
+                <div class="hlt-cal">
+                    <div class="wat-calculator">
+                        <div class="controls">
+                            <form>
+                                <div class="row" style="width:100%">
+                                    <div class="col-md-12 col-lg-6 col-xl-6 mt-3">
+                                        <h5>Age</h5>
+                                        <input type="text" id="age" value="" style="width:50px" />&nbsp;year
+                                    </div>
+
+                                    <div class="col-md-12 col-lg-6 col-xl-6 mt-3">
+                                        <h5>Weight</h5>
+                                        <input type="text" id="weight" value="" style="width:50px" />&nbsp;kg {% comment %}
+                                        <div class="unit">kg</div> {% endcomment %}
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="result">
+                            <button class="calculate-btn mt-3">Calculate</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <button class="clear-btn mt-3">Clear</button>
+
+                            <div class="result-message">At least&nbsp;
+                                <span class="ans my-3">0</span> ltr/day
+                            </div>
+                            {% comment %}
+                            <div class="error-message">
+                                <p>Invalid Input. Please enter all the details correcty.</p>
+                            </div> {% endcomment %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Body Fat calculator-->
+    <div class="accordion-item">
+        <div class="accordion-item-header">
+            Body Fat Calculator
+        </div>
+        <div class="accordion-item-body">
+            <div class="accordion-item-body-content">
+                <div class="hlt-cal">
+                    <div class="bfat-calculator">
+                        <div class="controls">
+                            <form>
+                                <div class="row" style="width:100%">
+                                    <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 mt-3">
+                                        <h5>Gender</h5>
+                                        <input type="radio" id="maleRadio" value="male" name="gender" onclick="showMaleFields()" checked />
+                                        <label for="maleRadio">Male</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <input type="radio" id="femaleRadio" value="female" name="gender" onclick="showFemaleFields()" />
+                                        <label for="femaleRadio">Female</label>
+                                    </div>
+
+                                    <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 mt-3">
+                                        <h5>Age</h5>
+                                        <input type="text" id="age" value="" style="width:50px" />&nbsp;year
+                                    </div>
+
+                                    <div class="col-10 col-sm-3 col-md-3 col-lg-3 col-xl-3 mt-3">
+                                        <h5>Weight</h5>
+                                        <input type="text" id="weight" value="" style="width:50px" />&nbsp;kg
+                                    </div>
+                                    <div class="col-2 col-sm-1 col-md-1 col-lg-1 col-xl-1 mt-3" id="maledata">
+                                        <h6>Help</h6>
+                                        <div class="container">
+                                            <div class="toggle">
+                                                <div class="toggle-button" onclick="Animatedtoggle()"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 mt-3 maleField" id="maledata">
+                                        <h5>Right Chest</h5>
+                                        <input type="text" id="chest" value="" style="width:50px" />&nbsp;mm
+                                        <br>
+                                        <label class="MaleHelp" id="mhelp">(diagonal fold half the distance between anterior axillary line and the nipple.)
+                                    </div>
+                                    <div class="col-12 col-sm-8 col-md-8 col-lg-8 col-xl-8 mt-3 MaleHelp" id="mhelp">
+                                        <img src="static/img/male_chest.png" width="180" height="180">
+                                    </div>
+                                    <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 mt-3 maleField" id="maledata">
+                                        <h5>Right Abdominal</h5>
+                                        <input type="text" id="abdo" value="" style="width:50px" />&nbsp;mm
+                                        <br>
+                                        <label class="MaleHelp" id="mhelp">(vertical fold 2cm to the right of the navel.)
+                                    </div>
+                                    <div class="col-12 col-sm-8 col-md-8 col-lg-8 col-xl-8 mt-3 MaleHelp" id="mhelp">
+                                        <img src="static/img/male_abdo.png" width="180" height="180">
+                                    </div>
+                                    <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 mt-3 maleField" id="maledata">
+                                        <h5>Right Thigh</h5>
+                                        <input type="text" id="mthigh" value="" style="width:50px" />&nbsp;mm
+                                        <br>
+                                        <label class="MaleHelp" id="mhelp">(midpoint of the anterior side of the upper leg between the patella and top of thigh.)
+                                    </div>
+                                    <div class="col-12 col-sm-8 col-md-8 col-lg-8 col-xl-8 mt-3 MaleHelp" id="mhelp">
+                                        <img src="static/img/male_thigh.png" width="180" height="180">
+                                    </div>
+
+                                    <!-- Female data -->
+
+                                    <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 mt-3 femaleField" id="femaledata">
+                                        <h5>Right Tricep</h5>
+                                        <input type="text" id="tri" value="" style="width:50px" />&nbsp;mm
+                                        <br>
+                                        <label class="FemaleHelp" id="femhelp">(vertical fold at the midpoint of the posterior side of tricep between shoulder and elbow with arm relaxed at the side.)
+                                    </div>
+                                    <div class="col-12 col-sm-8 col-md-8 col-lg-8 col-xl-8 mt-3 FemaleHelp" id="mhelp">
+                                        <img src="static/img/female_tri.png" width="180" height="180">
+                                    </div>
+                                    <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 mt-3 femaleField" id="femaledata">
+                                        <h5>Right Suprailiac</h5>
+                                        <input type="text" id="supra" value="" style="width:50px" />&nbsp;mm
+                                        <br>
+                                        <label class="FemaleHelp" id="femhelp">(diagonal fold parallel and superior to the iliac crest.)
+                                    </div>
+                                    <div class="col-12 col-sm-8 col-md-8 col-lg-8 col-xl-8 mt-3 FemaleHelp" id="femhelp">
+                                        <img src="static/img/female_supra.png" width="180" height="180">
+                                    </div>
+                                    <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 mt-3 femaleField" id="femaledata">
+                                        <h5>Right Thigh</h5>
+                                        <input type="text" id="femthigh" value="" style="width:50px" />&nbsp;mm
+                                        <br>
+                                        <label class="FemaleHelp" id="femhelp">(midpoint of the anterior side of the upper leg between the patella and top of thigh.)
+                                    </div>
+                                    <div class="col-12 col-sm-8 col-md-8 col-lg-8 col-xl-8 mt-3 FemaleHelp" id="femhelp">
+                                        <img src="static/img/female_thigh.png" width="180" height="180">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="result">
+                            <button class="calculate-btn mt-3">Calculate</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <button class="clear-btn mt-3">Clear</button>
+    
+                            <div class="result-message d-flex flex-column flex-sm-row justify-content-around">
+                                <p>
+                                <span class="ans my-3">0%</span>
+                                body fat
+                                </p>
+                                <p id="fat_reduce">
+                                </p>
+                            </div>
+                            {% comment %} <div class="error-message">
+                                <p>Invalid Input. Please enter all the details correcty.</p>
+                            </div> {% endcomment %}
+                        </div>
+                    </div>
+                </div>     
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing: border-box;
+    }
+    body{
+        background-color: #666666;
+        background-size: 50px 50px;
+        background-image: radial-gradient(#202020 3%, transparent 5%);
+        color: white;
+    }
+    /* #helth-heading{
+        margin-top: 5rem;
+    } */
+    @media screen and (max-width:413px) {
+        /* #helth-heading{
+            margin-top: 7rem;
+        } */
+    }
+    h1{
+        text-align:center;
+        margin:2rem 0;
+        color:black;
+        font-weight:bold;
+    }
+
+    h6{
+        font-weight:500;
+        color:#70db70;
+    }
+
+    .accordion{
+        width:90%;
+        max-width: 1500px;
+        margin: 2rem auto;
+    }
+    .accordion-item{
+        background-color: #202020;
+        color: White;
+        margin: 1rem 0;
+        border-radius: 0.5rem;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4);
+    }
+    .accordion-item-header{
+        padding: 0.5rem 3rem 0.5rem 1rem;
+        min-height:3.5rem;
+        line-height:1.25rem;
+        font-weight: bold;
+        display: flex;
+        align-items:center;
+        position: relative;
+        cursor: pointer;
+    }
+    .accordion-item-header::after{
+        content: "\002B";
+        font-size: 2rem;
+        position: absolute;
+        right: 1rem;
+    }
+    .accordion-item-header.active::after{
+        content: "\2212";
+        color:#ff0000;
+    }
+    .accordion-item-body{
+        max-height: 0;
+        overflow:hidden;
+        transition: max-height 0.2s ease-out;
+    }
+    .accordion-item-body-content{
+        padding:1rem;
+        line-height:1.5rem;
+        border-top: 2px solid;
+        border-image: linear-gradient(to right, transparent, #ff0000, transparent) 1;
+    }
+
+    @media(max-width:767px) {
+        html{
+            font-size: 14px;
+        }
+    }
+
+    .hlt-cal .result .calculate-btn {
+        padding: 8px 15px;
+        margin: 16px 0;
+        font-size: 15px;
+        font-weight: bold;
+        text-transform: uppercase;
+        border: none;
+        border-radius: 6px;
+        background: #595959;
+        color: #fff;
+        cursor: pointer;
+    }
+    .hlt-cal .result .clear-btn {
+        padding: 8px 15px;
+        margin: 16px 0;
+        font-size: 15px;
+        font-weight: bold;
+        text-transform: uppercase;
+        border: none;
+        border-radius: 6px;
+        background: #ff3333;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    .container{
+        position: relative;
+        transform: translate ("-50%,-50%");
+        height:25px;
+    }
+    .container .toggle{
+        position: absolute;
+        left:0;
+        width:50px;
+        height:25px;
+        background:#444;
+        border-radius:20px;
+        transition: 0.3s;
+    }
+    .container .toggle .toggle-button{
+        position: absolute;
+        width:25px;
+        height:25px;
+        background:white;
+        border-radius:50%;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .MaleHelp,.FemaleHelp{
+        display: none;
+    }
+    .femaleField{
+        display: none;
+    }
+    .container .toggle.active{
+        background: #ff0000;
+    }
+    .container .toggle.active .toggle-button{
+        left: 25px;
+    }
+
+    .hlt-cal .result .ans {
+        color: #ff0000;
+        font-size: 25px;
+        font-weight: 500;
+        margin-right:8px;
+        vertical-align: middle;
+    }
+    .hlt-cal .result .ans1 {
+        color: #ff0000;
+        font-size: 25px;
+        font-weight: 500;
+        margin-right:8px;
+        vertical-align: middle;
+    }
+    .hlt-cal .result .ans2 {
+        color: #ff0000;
+        font-size: 25px;
+        font-weight: 500;
+        margin-right:8px;
+        vertical-align: middle;
+    }
+    .hlt-cal .result .ans3 {
+        color: #ff0000;
+        font-size: 25px;
+        font-weight: 500;
+        margin-right:8px;
+        vertical-align: middle;
+    }
+    .hlt-cal .result{
+        color: white;
+        font-size: 18px;
+    }
+    {% comment %} .bmr-calculator form input[type="text"].invalid {
+        border: 5px solid red;
+    }
+    .bmr-calculator .result .error-message {
+        color: red;
+        font-size: 14px;
+        display: none;
+        margin-top:2px;
+    }
+    .bmr-calculator .result .error-message.active{
+        display:block;
+    } {% endcomment %}
+
+
+</style>
+
+<script>
+    const accordionItemHeaders = document.querySelectorAll(".accordion-item-header");
+
+    accordionItemHeaders.forEach(accordionItemHeader => {
+        accordionItemHeader.addEventListener("click", event => {
+            accordionItemHeader.classList.toggle("active")
+            const accordionItemBody = accordionItemHeader.nextElementSibling;
+            if(accordionItemHeader.classList.contains("active")) {
+                accordionItemBody.style.maxHeight = "1300px";
+            }
+            else {
+                accordionItemBody.style.maxHeight = 0;
+            }
+        });
+    });
+    // added by rajesh for body fat code 
+    let toggle = document.querySelector(".toggle");
+    function Animatedtoggle(){
+        toggle.classList.toggle("active");
+        // choice=document.querySelector('input[name="gender"]:checked').value
+        choiceMale=document.querySelector('#maleRadio').checked
+        console.log(choiceMale)
+        if(choiceMale){
+            if(toggle.classList.contains("active")){
+                let malehelps=document.querySelectorAll(".MaleHelp")
+                for (let i = 0; i < malehelps.length; i++) {
+                    malehelps[i].style.display="block";
+                }
+            }else{
+                let malehelps=document.querySelectorAll(".MaleHelp")
+                for (let i = 0; i < malehelps.length; i++) {
+                    malehelps[i].style.display="none";
+                }
+            }
+        }else{
+            if(toggle.classList.contains("active")){
+                let femalehelps=document.querySelectorAll(".FemaleHelp")
+                for (let i = 0; i < femalehelps.length; i++) {
+                    femalehelps[i].style.display="block";
+                }
+            }else{
+                let femalehelps=document.querySelectorAll(".FemaleHelp")
+                for (let i = 0; i < femalehelps.length; i++) {
+                    femalehelps[i].style.display="none";
+                }
+            }
+        }
+    }
+
+    function showMaleFields(){
+        let malehelps=document.querySelectorAll(".MaleHelp")
+        toggle.classList.remove("active");
+        for (let i = 0; i < malehelps.length; i++) {
+            malehelps[i].style.display="none";
+        }
+        let femalehelps=document.querySelectorAll(".FemaleHelp")
+        for (let i = 0; i < femalehelps.length; i++) {
+            femalehelps[i].style.display="none";
+        }
+        console.log('malefields')
+        let maleFields=document.querySelectorAll(".maleField")
+        let femaleFields=document.querySelectorAll(".femaleField")
+        for (let i = 0; i < maleFields.length; i++) {
+            maleFields[i].style.display='block'
+        }
+        for (let i = 0; i < femaleFields.length; i++) {
+            femaleFields[i].style.display='none'
+        }
+    }
+
+    function showFemaleFields(){
+        let malehelps=document.querySelectorAll(".MaleHelp")
+        toggle.classList.remove("active");        
+        let maleFields=document.querySelectorAll(".maleField")
+        for (let i = 0; i < malehelps.length; i++) {
+            malehelps[i].style.display="none";
+        }
+        let femalehelps=document.querySelectorAll(".FemaleHelp")
+        for (let i = 0; i < femalehelps.length; i++) {
+            femalehelps[i].style.display="none";
+        }
+        let femaleFields=document.querySelectorAll(".femaleField")
+        for (let i = 0; i < maleFields.length; i++) {
+            maleFields[i].style.display='none'
+        }
+        for (let i = 0; i < femaleFields.length; i++) {
+            femaleFields[i].style.display='block'
+        }
+    }
+
+    
+
+    let btnClearbmi = document.querySelector(".hlt-cal .bmi-calculator .result .clear-btn");//BMI
+    let btnClearbmr = document.querySelector(".hlt-cal .bmr-calculator .result .clear-btn");//BMR
+    let btnClearcal = document.querySelector(".hlt-cal .cal-calculator .result .clear-btn");//Calorie
+    let btnClearpro = document.querySelector(".hlt-cal .pro-calculator .result .clear-btn");//Protein
+    let btnClearcar = document.querySelector(".hlt-cal .car-calculator .result .clear-btn");//Carbs
+    let btnClearfat = document.querySelector(".hlt-cal .fat-calculator .result .clear-btn");//Fat
+    let btnClearwat = document.querySelector(".hlt-cal .wat-calculator .result .clear-btn");//Water
+    let btnClearbfat = document.querySelector(".hlt-cal .bfat-calculator .result .clear-btn");//Bfat
+    let inputs = document.querySelectorAll(".hlt-cal form input[type='text']");
+    {% comment %} let gen = document.querySelectorAll(".hlt-cal .bmr-calculator form input label"); {% endcomment %}
+    
+    //BMI clear
+    btnClearbmi.addEventListener('click', () => {
+        inputs.forEach(input => input.value = '');
+        // updated by rajesh for clearing result
+        let ClearbmiResult = document.querySelector(".hlt-cal .bmi-calculator .result .result-message .ans");
+        ClearbmiResult.innerHTML='0'
+        let status=document.querySelector('.bmi-status p')
+        status.innerHTML=""
+    });
+
+    //BMR clear
+    btnClearbmr.addEventListener('click', () => {
+        inputs.forEach(input => input.value = '');
+        // updated by rajesh for clearing result
+        let ClearbmrResult = document.querySelector(".hlt-cal .bmr-calculator .result .result-message .ans");
+        ClearbmrResult.innerHTML='0'
+    });
+
+    //Calorie clear
+    btnClearcal.addEventListener('click', () => {
+        inputs.forEach(input => input.value = '');
+        // updated by rajesh for clearing results
+        let ClearCalResult1 = document.querySelector(".hlt-cal .cal-calculator .result .result-message .ans1");
+        let ClearCalResult2 = document.querySelector(".hlt-cal .cal-calculator .result .result-message .ans2");
+        let ClearCalResult3= document.querySelector(".hlt-cal .cal-calculator .result .result-message .ans3");
+        ClearCalResult1.innerHTML='0'
+        ClearCalResult2.innerHTML='0'
+        ClearCalResult3.innerHTML='0'
+    });
+
+    //Protein clear
+    btnClearpro.addEventListener('click', () => {
+        inputs.forEach(input => input.value = '');
+        // updated by rajesh for clearing results
+        let ClearProResult1 = document.querySelector(".hlt-cal .pro-calculator .result .result-message .ans1");
+        let ClearProResult2 = document.querySelector(".hlt-cal .pro-calculator .result .result-message .ans2");
+        let ClearProResult3= document.querySelector(".hlt-cal .pro-calculator .result .result-message .ans3");
+        ClearProResult1.innerHTML='0'
+        ClearProResult2.innerHTML='0'
+        ClearProResult3.innerHTML='0'
+    });
+
+    //Carbs clear
+    btnClearcar.addEventListener('click', () => {
+        inputs.forEach(input => input.value = '');
+        // updated by rajesh for clearing results
+        let ClearCarResult1 = document.querySelector(".hlt-cal .car-calculator .result .result-message .ans1");
+        let ClearCarResult2 = document.querySelector(".hlt-cal .car-calculator .result .result-message .ans2");
+        let ClearCarResult3= document.querySelector(".hlt-cal .car-calculator .result .result-message .ans3");
+        ClearCarResult1.innerHTML='0'
+        ClearCarResult2.innerHTML='0'
+        ClearCarResult3.innerHTML='0'
+    });
+
+    //Fat clear
+    btnClearfat.addEventListener('click', () => {
+        inputs.forEach(input => input.value = '');
+        // updated by rajesh for clearing results
+        let ClearFatResult1 = document.querySelector(".hlt-cal .fat-calculator .result .result-message .ans1");
+        let ClearFatResult2 = document.querySelector(".hlt-cal .fat-calculator .result .result-message .ans2");
+        let ClearFatResult3= document.querySelector(".hlt-cal .fat-calculator .result .result-message .ans3");
+        ClearFatResult1.innerHTML='0'
+        ClearFatResult2.innerHTML='0'
+        ClearFatResult3.innerHTML='0'
+    });
+
+    //Water clear
+    btnClearwat.addEventListener('click', () => {
+        inputs.forEach(input => input.value = '');
+        let ClearWatResult = document.querySelector(".hlt-cal .wat-calculator .result .result-message .ans");
+        ClearWatResult.innerHTML='0'
+    });
+
+    //Bfat clear
+    btnClearbfat.addEventListener('click', () => {
+        inputs.forEach(input => input.value = '');
+        let ClearBFatResult = document.querySelector(".hlt-cal .bfat-calculator .result .result-message .ans");
+        let reduceResult=document.getElementById('fat_reduce')
+        ClearBFatResult.innerHTML='0%'
+        reduceResult.innerHTML=''
+    });
+
+    //BMI variables
+    const ansbmi = document.querySelector(".hlt-cal .bmi-calculator .result .ans");//BMI
+    const calculateBtnbmi = document.querySelector(".hlt-cal .bmi-calculator .result .calculate-btn");//BMI
+    const height1bmi = document.querySelector(".hlt-cal .bmi-calculator form #height1");//BMI
+    const height2bmi = document.querySelector(".hlt-cal .bmi-calculator form #height2");//BMI
+    const weightbmi = document.querySelector(".hlt-cal .bmi-calculator form #weight");//BMI
+
+    //BMR variables
+    const ansbmr = document.querySelector(".hlt-cal .bmr-calculator .result .ans");//BMR
+    const calculateBtnbmr = document.querySelector(".hlt-cal .bmr-calculator .result .calculate-btn");//BMR
+    const agebmr = document.querySelector(".hlt-cal .bmr-calculator form #age");//BMR
+    const height1bmr = document.querySelector(".hlt-cal .bmr-calculator form #height1");//BMR
+    const height2bmr = document.querySelector(".hlt-cal .bmr-calculator form #height2");//BMR
+    const weightbmr = document.querySelector(".hlt-cal .bmr-calculator form #weight");//BMR
+    {% comment %} const errorMessage = document.querySelector(".bmr-calculator .result .error-message"); {% endcomment %}
+
+    //Calorie variables
+    const ans1cal = document.querySelector(".hlt-cal .cal-calculator .result .ans1");//Calorie
+    const ans2cal = document.querySelector(".hlt-cal .cal-calculator .result .ans2");//Calorie
+    const ans3cal = document.querySelector(".hlt-cal .cal-calculator .result .ans3");//Calorie
+    const calculateBtncal = document.querySelector(".hlt-cal .cal-calculator .result .calculate-btn");//Calorie
+    const agecal = document.querySelector(".hlt-cal .cal-calculator form #age");//Calorie
+    const height1cal = document.querySelector(".hlt-cal .cal-calculator form #height1");//Calorie
+    const height2cal = document.querySelector(".hlt-cal .cal-calculator form #height2");//Calorie
+    const weightcal = document.querySelector(".hlt-cal .cal-calculator form #weight");//Calorie
+
+    //Protein variables
+    const ans1pro = document.querySelector(".hlt-cal .pro-calculator .result .ans1");//Protein
+    const ans2pro = document.querySelector(".hlt-cal .pro-calculator .result .ans2");//Protein
+    const ans3pro = document.querySelector(".hlt-cal .pro-calculator .result .ans3");//Protein
+    const calculateBtnpro = document.querySelector(".hlt-cal .pro-calculator .result .calculate-btn");//Protein
+    const agepro = document.querySelector(".hlt-cal .pro-calculator form #age");//Protein
+    const weightpro = document.querySelector(".hlt-cal .pro-calculator form #weight");//Protein
+
+    //Carbs variables
+    const ans1car = document.querySelector(".hlt-cal .car-calculator .result .ans1");//Carbs
+    const ans2car = document.querySelector(".hlt-cal .car-calculator .result .ans2");//Carbs
+    const ans3car = document.querySelector(".hlt-cal .car-calculator .result .ans3");//Carbs
+    const calculateBtncar = document.querySelector(".hlt-cal .car-calculator .result .calculate-btn");//Carbs
+    const agecar = document.querySelector(".hlt-cal .car-calculator form #age");//Carbs
+    const height1car = document.querySelector(".hlt-cal .car-calculator form #height1");//Carbs
+    const height2car = document.querySelector(".hlt-cal .car-calculator form #height2");//Carbs
+    const weightcar = document.querySelector(".hlt-cal .car-calculator form #weight");//Carbs
+
+    //Fat veriables
+    const ans1fat = document.querySelector(".hlt-cal .fat-calculator .result .ans1");//Carbs
+    const ans2fat = document.querySelector(".hlt-cal .fat-calculator .result .ans2");//Carbs
+    const ans3fat = document.querySelector(".hlt-cal .fat-calculator .result .ans3");//Carbs
+    const calculateBtnfat = document.querySelector(".hlt-cal .fat-calculator .result .calculate-btn");//Carbs
+    const agefat = document.querySelector(".hlt-cal .fat-calculator form #age");//Carbs
+    const height1fat = document.querySelector(".hlt-cal .fat-calculator form #height1");//Carbs
+    const height2fat = document.querySelector(".hlt-cal .fat-calculator form #height2");//Carbs
+    const weightfat = document.querySelector(".hlt-cal .fat-calculator form #weight");//Carbs
+
+    //Water variables
+    const answat = document.querySelector(".hlt-cal .wat-calculator .result .ans");//Water
+    const calculateBtnwat = document.querySelector(".hlt-cal .wat-calculator .result .calculate-btn");//Water
+    const weightwat = document.querySelector(".hlt-cal .wat-calculator form #weight");//Water
+    const agewat = document.querySelector(".hlt-cal .wat-calculator form #age");//Water
+
+    //Bfat variables
+    const ansbfat = document.querySelector(".hlt-cal .bfat-calculator .result .ans");//BMI
+    const calculateBtnbfat = document.querySelector(".hlt-cal .bfat-calculator .result .calculate-btn");//BMI
+    const agebfat = document.querySelector(".hlt-cal .bfat-calculator form #age");//Bfat
+    const weightbfat = document.querySelector(".hlt-cal .bfat-calculator form #weight");//BMI
+    const chestbfat = document.querySelector(".hlt-cal .bfat-calculator form #chest");//BMI
+    const abdobfat = document.querySelector(".hlt-cal .bfat-calculator form #abdo");//BMI
+    const mthighbfat = document.querySelector(".hlt-cal .bfat-calculator form #mthigh");//BMI
+    const tribfat = document.querySelector(".hlt-cal .bfat-calculator form #tri");//BMI
+    const suprabfat = document.querySelector(".hlt-cal .bfat-calculator form #supra");//BMI
+    const femthighbfat = document.querySelector(".hlt-cal .bfat-calculator form #femthigh");//BMI
+    
+
+
+
+    
+    //BMI formula
+    const calculateBMI = (weightbmi, height1bmi, height2bmi, LBweight, INheight, resultbmi) => {
+            LBweight = weightbmi * 2.2;
+            INheight = height1bmi * 12 + parseInt(height2bmi);
+            resultbmi = ((LBweight / (INheight * INheight)) * 703).toFixed(1)
+            return resultbmi;
+    };
+
+    //BMR formula
+    const calculateBMR = (weightbmr, height1bmr, height2bmr, agebmr, genderbmr, CMheight) => {
+        CMheight = (height1bmr * 12 + parseInt(height2bmr)) * 2.54;
+        if(genderbmr == "male") {
+            return parseInt(10 * weightbmr + 6.25 * CMheight - 5 * agebmr + 5);
+        }
+        return parseInt(10 * weightbmr + 6.25 * CMheight - 5 * agebmr - 161);
+    };
+
+    //Calorie formula
+    const calculate1Calorie = (weightcal, height1cal, height2cal, agecal, gendercal, activitycal, CMheight) => {
+        CMheight = (height1cal * 12 + parseInt(height2cal)) * 2.54;
+        if(gendercal == "male") {
+            if(activitycal == "sedentary"){
+                return parseInt((10 * weightcal + 6.25 * CMheight - 5 * agecal + 5) * 1.2);
+            }else if(activitycal == "light"){
+                return parseInt((10 * weightcal + 6.25 * CMheight - 5 * agecal + 5) * 1.375);
+            }else if(activitycal == "moderate"){
+                return parseInt((10 * weightcal + 6.25 * CMheight - 5 * agecal + 5) * 1.55);
+            }else{
+            return parseInt((10 * weightcal + 6.25 * CMheight - 5 * agecal + 5) * 1.8);
+            }
+        }
+        else if(gendercal == "female") {
+            if(activitycal == "sedentary"){
+                return parseInt((10 * weightcal + 6.25 * CMheight - 5 * agecal - 161) * 1.2);
+            }else if(activitycal == "light"){
+                return parseInt((10 * weightcal + 6.25 * CMheight - 5 * agecal - 161) * 1.375);
+            }else if(activitycal == "moderate"){
+                return parseInt((10 * weightcal + 6.25 * CMheight - 5 * agecal - 161) * 1.55);
+            }else{
+            return parseInt((10 * weightcal + 6.25 * CMheight - 5 * agecal - 161) * 1.8);
+            }
+        }
+    };
+
+    const calculate2Calorie = (weightcal, height1cal, height2cal, agecal, gendercal, activitycal, CMheight) => {
+        CMheight = (height1cal * 12 + parseInt(height2cal)) * 2.54;
+        if(gendercal == "male") {
+            if(activitycal == "sedentary"){
+                return parseInt((10 * weightcal + 6.25 * CMheight - 5 * agecal + 5) * 1.2 * .8);
+            }else if(activitycal == "light"){
+                return parseInt((10 * weightcal + 6.25 * CMheight - 5 * agecal + 5) * 1.375 * .8);
+            }else if(activitycal == "moderate"){
+                return parseInt((10 * weightcal + 6.25 * CMheight - 5 * agecal + 5) * 1.55 * .8);
+            }else{
+            return parseInt((10 * weightcal + 6.25 * CMheight - 5 * agecal + 5) * 1.8 * .8);
+            }
+        }
+        else if(gendercal == "female") {
+            if(activitycal == "sedentary"){
+                return parseInt((10 * weightcal + 6.25 * CMheight - 5 * agecal - 161) * 1.2 * .8);
+            }else if(activitycal == "light"){
+                return parseInt((10 * weightcal + 6.25 * CMheight - 5 * agecal - 161) * 1.375 * .8);
+            }else if(activitycal == "moderate"){
+                return parseInt((10 * weightcal + 6.25 * CMheight - 5 * agecal - 161) * 1.55 * .8);
+            }else{
+            return parseInt((10 * weightcal + 6.25 * CMheight - 5 * agecal - 161) * 1.8 * .8);
+            }
+        }
+    };
+
+    const calculate3Calorie = (weightcal, height1cal, height2cal, agecal, gendercal, activitycal, CMheight) => {
+        CMheight = (height1cal * 12 + parseInt(height2cal)) * 2.54;
+        if(gendercal == "male") {25
+            if(activitycal == "sedentary"){
+                return parseInt((10 * weightcal + 6.25 * CMheight - 5 * agecal + 5) * 1.2 * 1.2);
+            }else if(activitycal == "light"){
+                return parseInt((10 * weightcal + 6.25 * CMheight - 5 * agecal + 5) * 1.375 * 1.2);
+            }else if(activitycal == "moderate"){
+                return parseInt((10 * weightcal + 6.25 * CMheight - 5 * agecal + 5) * 1.55 * 1.2);
+            }else{
+            return parseInt((10 * weightcal + 6.25 * CMheight - 5 * agecal + 5) * 1.8 * 1.2);
+            }
+        }
+        else if(gendercal == "female") {
+            if(activitycal == "sedentary"){
+                return parseInt((10 * weightcal + 6.25 * CMheight - 5 * agecal - 161) * 1.2 * 1.2);
+            }else if(activitycal == "light"){
+                return parseInt((10 * weightcal + 6.25 * CMheight - 5 * agecal - 161) * 1.375 * 1.2);
+            }else if(activitycal == "moderate"){
+                return parseInt((10 * weightcal + 6.25 * CMheight - 5 * agecal - 161) * 1.55 * 1.2);
+            }else{
+            return parseInt((10 * weightcal + 6.25 * CMheight - 5 * agecal - 161) * 1.8 * 1.2);
+            }
+        }
+    };
+
+    //Protein formula
+    const calculate1Protein = (weightpro, agepro, activitypro) => {
+        if(agepro < 50) {
+            if(activitypro == "sedentary"){
+                return parseInt(weightpro * .8);
+            }else if(activitypro == "light"){
+                return parseInt(weightpro * 1);
+            }else if(activitypro == "moderate"){
+                return parseInt(weightpro * 1.2);
+            }else{
+                return parseInt(weightpro * 1.4);
+            }
+        }
+        else{
+            if(activitypro == "sedentary"){
+                return parseInt(weightpro * 1);
+            }else if(activitypro == "light"){
+                return parseInt(weightpro * 1.1);
+            }else if(activitypro == "moderate"){
+                return parseInt(weightpro * 1.3);
+            }else{
+                return parseInt(weightpro * 1.5);
+            }
+        }
+    };
+
+    const calculate2Protein = (weightpro, agepro, activitypro) => {
+        if(agepro < 50) {
+            if(activitypro == "sedentary"){
+                return parseInt(weightpro * 1);
+            }else if(activitypro == "light"){
+                return parseInt(weightpro * 1.2);
+            }else if(activitypro == "moderate"){
+                return parseInt(weightpro * 1.6);
+            }else{
+                return parseInt(weightpro * 2);
+            }
+        }
+        else{
+            if(activitypro == "sedentary"){
+                return parseInt(weightpro * 1.2);
+            }else if(activitypro == "light"){
+                return parseInt(weightpro * 1.4);
+            }else if(activitypro == "moderate"){
+                return parseInt(weightpro * 1.6);
+            }else{
+                return parseInt(weightpro * 1.8);
+            }
+        }
+    };
+
+    const calculate3Protein = (weightpro, agepro, activitypro) => {
+        if(agepro < 50) {
+            if(activitypro == "sedentary"){
+                return parseInt(weightpro * .7);
+            }else if(activitypro == "light"){
+                return parseInt(weightpro * .9);
+            }else if(activitypro == "moderate"){
+                return parseInt(weightpro * 1.1);
+            }else{
+                return parseInt(weightpro * 1.4);
+            }
+        }
+        else{
+            if(activitypro == "sedentary"){
+                return parseInt(weightpro * 1);
+            }else if(activitypro == "light"){
+                return parseInt(weightpro * 1.1);
+            }else if(activitypro == "moderate"){
+                return parseInt(weightpro * 1.2);
+            }else{
+                return parseInt(weightpro * 1.3);
+            }
+        }
+    };
+
+    //Carbs formula
+    const calculate1Carbs = (weightcar, height1car, height2car, agecar, gendercar, activitycar, CMheight) => {
+        CMheight = (height1car * 12 + parseInt(height2car)) * 2.54;
+        if(gendercar == "male") {
+            if(activitycar == "sedentary"){
+                return parseInt(((10 * weightcar + 6.25 * CMheight - 5 * agecar + 5) * 1.2 * .5) / 4);
+            }else if(activitycar == "light"){
+                return parseInt(((10 * weightcar + 6.25 * CMheight - 5 * agecar + 5) * 1.375 * .5) / 4);
+            }else if(activitycar == "moderate"){
+                return parseInt(((10 * weightcar + 6.25 * CMheight - 5 * agecar + 5) * 1.55 * .5) / 4);
+            }else{
+            return parseInt(((10 * weightcar + 6.25 * CMheight - 5 * agecar + 5) * 1.8 * .5) / 4);
+            }
+        }
+        else if(gendercar == "female") {
+            if(activitycar == "sedentary"){
+                return parseInt(((10 * weightcar + 6.25 * CMheight - 5 * agecar - 161) * 1.2 * .5) / 4);
+            }else if(activitycar == "light"){
+                return parseInt(((10 * weightcar + 6.25 * CMheight - 5 * agecar - 161) * 1.375 * .5) / 4);
+            }else if(activitycar == "moderate"){
+                return parseInt(((10 * weightcar + 6.25 * CMheight - 5 * agecar - 161) * 1.55 * .5) / 4);
+            }else{
+            return parseInt(((10 * weightcar + 6.25 * CMheight - 5 * agecar - 161) * 1.8 * .5) / 4);
+            }
+        }
+    };
+
+    const calculate2Carbs = (weightcar, height1car, height2car, agecar, gendercar, activitycar, CMheight) => {
+        CMheight = (height1car * 12 + parseInt(height2car)) * 2.54;
+        if(gendercar == "male") {
+            if(activitycar == "sedentary"){
+                return parseInt(((10 * weightcar + 6.25 * CMheight - 5 * agecar + 5) * 1.2 * .8 * .5) / 4);
+            }else if(activitycar == "light"){
+                return parseInt(((10 * weightcar + 6.25 * CMheight - 5 * agecar + 5) * 1.375 * .8 * .5) / 4);
+            }else if(activitycar == "moderate"){
+                return parseInt(((10 * weightcar + 6.25 * CMheight - 5 * agecar + 5) * 1.55 * .8 * .5) / 4);
+            }else{
+            return parseInt(((10 * weightcar + 6.25 * CMheight - 5 * agecar + 5) * 1.8 * .8 * .5) / 4);
+            }
+        }
+        else if(gendercar == "female") {
+            if(activitycar == "sedentary"){
+                return parseInt(((10 * weightcar + 6.25 * CMheight - 5 * agecar - 161) * 1.2 * .8 * .5) / 4);
+            }else if(activitycar == "light"){
+                return parseInt(((10 * weightcar + 6.25 * CMheight - 5 * agecar - 161) * 1.375 * .8 * .5) / 4);
+            }else if(activitycar == "moderate"){
+                return parseInt(((10 * weightcar + 6.25 * CMheight - 5 * agecar - 161) * 1.55 * .8 * .5) / 4);
+            }else{
+            return parseInt(((10 * weightcar + 6.25 * CMheight - 5 * agecar - 161) * 1.8 * .8 * .5) / 4);
+            }
+        }
+    };
+
+    const calculate3Carbs = (weightcar, height1car, height2car, agecar, gendercar, activitycar, CMheight) => {
+        CMheight = (height1car * 12 + parseInt(height2car)) * 2.54;
+        if(gendercar == "male") {25
+            if(activitycar == "sedentary"){
+                return parseInt(((10 * weightcar + 6.25 * CMheight - 5 * agecar + 5) * 1.2 * 1.2 * .5) / 4);
+            }else if(activitycar == "light"){
+                return parseInt(((10 * weightcar + 6.25 * CMheight - 5 * agecar + 5) * 1.375 * 1.2 * .5) / 4);
+            }else if(activitycar == "moderate"){
+                return parseInt(((10 * weightcar + 6.25 * CMheight - 5 * agecar + 5) * 1.55 * 1.2 * .5) / 4);
+            }else{
+            return parseInt(((10 * weightfat + 6.25 * CMheight - 5 * agecar + 5) * 1.8 * 1.2 * .5) / 4);
+            }
+        }
+        else if(gendercar == "female") {
+            if(activitycar == "sedentary"){
+                return parseInt(((10 * weightcar + 6.25 * CMheight - 5 * agecar - 161) * 1.2 * 1.2 * .5) / 4);
+            }else if(activitycar == "light"){
+                return parseInt(((10 * weightcar + 6.25 * CMheight - 5 * agecar - 161) * 1.375 * 1.2 * .5) / 4);
+            }else if(activitycar == "moderate"){
+                return parseInt(((10 * weightcar + 6.25 * CMheight - 5 * agecar - 161) * 1.55 * 1.2 * .5) / 4);
+            }else{
+            return parseInt(((10 * weightcar + 6.25 * CMheight - 5 * agecar - 161) * 1.8 * 1.2 * .5) / 4);
+            }
+        }
+    };
+
+    //Fat formula
+    const calculate1Fat = (weightfat, height1fat, height2fat, agefat, genderfat, activityfat, CMheight) => {
+        CMheight = (height1fat * 12 + parseInt(height2fat)) * 2.54;
+        if(genderfat == "male") {
+            if(activityfat == "sedentary"){
+                return parseInt(((10 * weightfat + 6.25 * CMheight - 5 * agefat + 5) * 1.2 * .2) / 9);
+            }else if(activityfat == "light"){
+                return parseInt(((10 * weightfat + 6.25 * CMheight - 5 * agefat + 5) * 1.375 * .2) / 9);
+            }else if(activityfat == "moderate"){
+                return parseInt(((10 * weightfat + 6.25 * CMheight - 5 * agefat + 5) * 1.55 * .2) / 9);
+            }else{
+            return parseInt(((10 * weightfat + 6.25 * CMheight - 5 * agefat + 5) * 1.8 * .2) / 9);
+            }
+        }
+        else if(genderfat == "female") {
+            if(activityfat == "sedentary"){
+                return parseInt(((10 * weightfat + 6.25 * CMheight - 5 * agefat - 161) * 1.2 * .2) / 9);
+            }else if(activityfat == "light"){
+                return parseInt(((10 * weightfat + 6.25 * CMheight - 5 * agefat - 161) * 1.375 * .2) / 9);
+            }else if(activityfat == "moderate"){
+                return parseInt(((10 * weightfat + 6.25 * CMheight - 5 * agefat - 161) * 1.55 * .2) / 9);
+            }else{
+            return parseInt(((10 * weightfat + 6.25 * CMheight - 5 * agefat - 161) * 1.8 * .2) / 9);
+            }
+        }
+    };
+
+    const calculate2Fat = (weightfat, height1fat, height2fat, agefat, genderfat, activityfat, CMheight) => {
+        CMheight = (height1fat * 12 + parseInt(height2fat)) * 2.54;
+        if(genderfat == "male") {
+            if(activityfat == "sedentary"){
+                return parseInt(((10 * weightfat + 6.25 * CMheight - 5 * agefat + 5) * 1.2 * .8 * .35) / 9);
+            }else if(activityfat == "light"){
+                return parseInt(((10 * weightfat + 6.25 * CMheight - 5 * agefat + 5) * 1.375 * .8 * .35) / 9);
+            }else if(activityfat == "moderate"){
+                return parseInt(((10 * weightfat + 6.25 * CMheight - 5 * agefat + 5) * 1.55 * .8 * .35) / 9);
+            }else{
+            return parseInt(((10 * weightfat + 6.25 * CMheight - 5 * agefat + 5) * 1.8 * .8 * .35) / 9);
+            }
+        }
+        else if(genderfat == "female") {
+            if(activityfat == "sedentary"){
+                return parseInt(((10 * weightfat + 6.25 * CMheight - 5 * agefat - 161) * 1.2 * .8 * .35) / 9);
+            }else if(activityfat == "light"){
+                return parseInt(((10 * weightfat + 6.25 * CMheight - 5 * agefat - 161) * 1.375 * .8 * .35) / 9);
+            }else if(activityfat == "moderate"){
+                return parseInt(((10 * weightfat + 6.25 * CMheight - 5 * agefat - 161) * 1.55 * .8 * .35) / 9);
+            }else{
+            return parseInt(((10 * weightfat + 6.25 * CMheight - 5 * agefat - 161) * 1.8 * .8 * .35) / 9);
+            }
+        }
+    };
+
+    const calculate3Fat = (weightfat, height1fat, height2fat, agefat, genderfat, activityfat, CMheight) => {
+        CMheight = (height1fat * 12 + parseInt(height2fat)) * 2.54;
+        if(genderfat == "male") {25
+            if(activityfat == "sedentary"){
+                return parseInt(((10 * weightfat + 6.25 * CMheight - 5 * agefat + 5) * 1.2 * 1.2 * .1) / 9);
+            }else if(activityfat == "light"){
+                return parseInt(((10 * weightfat + 6.25 * CMheight - 5 * agefat + 5) * 1.375 * 1.2 * .1) / 9);
+            }else if(activityfat == "moderate"){
+                return parseInt(((10 * weightfat + 6.25 * CMheight - 5 * agefat + 5) * 1.55 * 1.2 * .1) / 9);
+            }else{
+            return parseInt(((10 * weightfat + 6.25 * CMheight - 5 * agefat + 5) * 1.8 * 1.2 * .1) / 9);
+            }
+        }
+        else if(genderfat == "female") {
+            if(activityfat == "sedentary"){
+                return parseInt(((10 * weightfat + 6.25 * CMheight - 5 * agefat - 161) * 1.2 * 1.2 * .1) / 9);
+            }else if(activityfat == "light"){
+                return parseInt(((10 * weightfat + 6.25 * CMheight - 5 * agefat - 161) * 1.375 * 1.2 * .1) / 9);
+            }else if(activityfat == "moderate"){
+                return parseInt(((10 * weightfat + 6.25 * CMheight - 5 * agefat - 161) * 1.55 * 1.2 * .1) / 9);
+            }else{
+            return parseInt(((10 * weightfat + 6.25 * CMheight - 5 * agefat - 161) * 1.8 * 1.2 * .1) / 9);
+            }
+        }
+    };
+
+    //Water formula
+    const calculateWater = (weightwat, agewat) => {
+        if(agewat < 30){
+            return (((weightwat * 40) /28.3) / 33.8).toFixed(1);
+        }else if(agewat >= 30 && agewat < 55){
+            return (((weightwat * 35) /28.3) / 33.8).toFixed(1);
+        }else{
+            return (((weightwat * 30) /28.3) / 33.8).toFixed(1);
+        }       
+    };
+
+    //Bfat formula
+    const calculateBfat = (weightbfat, agebfat, genderbfat, chestbfat, abdobfat, mthighbfat, tribfat, suprabfat, femthighbfat, msum, femsum) => {
+        msum = parseInt(chestbfat) + parseInt(abdobfat) + parseInt(mthighbfat);
+        femsum = parseInt(tribfat) + parseInt(suprabfat) + parseInt(femthighbfat);
+        if(genderbfat == "male") {
+            return (((4.95/(1.10938 - .0008267 * msum + .0000016 * msum * msum - .0002574 * agebfat))-4.50)*100).toFixed(1);
+        }
+        return ((457/(1.0994921 - .0009929 * femsum + .0000023 * femsum * femsum - .0001329 * agebfat))-414.2).toFixed(1);
+    };
+
+
+
+
+// Calculated value display starts
+    calculateBtnbmi.addEventListener("click", () => {
+
+        /*if(age.classList.contains("invalid") || height.classList.contains("invalid") || weight.classList.contains("invalid")){
+            errorMessage.classList.add("active");
+            return;
+        }
+        errorMessage.classList.remove("active");*/
+
+        let BMI = calculateBMI(parseInt(weightbmi.value), parseInt(height1bmi.value), parseInt(height2bmi.value));
+        if(BMI=='NaN'){
+            alert('Bad Inputs ')
+            inputs.forEach(input => input.value = '');
+        }else{
+            ansbmi.innerHTML = BMI;
+            let status=document.querySelector('.bmi-status p')
+            if(BMI<=18.4){
+                status.innerHTML='You Are Underweight'
+            }else if(BMI>18.4&&BMI<=24.9){
+                status.innerHTML='You Are Normal'
+            }else if(BMI>24.9&&BMI<=39.9){
+                status.innerHTML='You Are Normal'
+            }else{
+                status.innerHTML='You Are Obese'
+            }
+        }
+    });
+
+    calculateBtnbmr.addEventListener("click", () => {
+
+        let genderbmrValue = document.querySelector(".hlt-cal .bmr-calculator form input[name='gender']:checked").value;//BMR
+        let BMR = calculateBMR(parseInt(weightbmr.value), parseInt(height1bmr.value), parseInt(height2bmr.value), parseInt(agebmr.value), genderbmrValue);
+        if(BMR.toLocaleString("en-US")=='NaN'){
+            alert('Bad Inputs ')
+            inputs.forEach(input => input.value = '');
+        }else{
+            ansbmr.innerHTML = BMR.toLocaleString("en-US");
+        }
+    });
+
+    calculateBtncal.addEventListener("click", () => {
+
+        let gendercalValue = document.querySelector(".hlt-cal .cal-calculator form input[name='gender']:checked").value;//Calorie
+        let activitycalValue = document.querySelector(".hlt-cal .cal-calculator form input[name='activity']:checked").value;
+        let Calorie1 = calculate1Calorie(parseInt(weightcal.value), parseInt(height1cal.value), parseInt(height2cal.value), parseInt(agecal.value), gendercalValue, activitycalValue);
+        let Calorie2 = calculate2Calorie(parseInt(weightcal.value), parseInt(height1cal.value), parseInt(height2cal.value), parseInt(agecal.value), gendercalValue, activitycalValue);
+        let Calorie3 = calculate3Calorie(parseInt(weightcal.value), parseInt(height1cal.value), parseInt(height2cal.value), parseInt(agecal.value), gendercalValue, activitycalValue);
+        
+        if(Calorie1.toLocaleString("en-US")=='NaN'||Calorie2.toLocaleString("en-US")=='NaN'||Calorie3.toLocaleString("en-US")=='NaN'){
+            alert('Bad Inputs ')
+            inputs.forEach(input => input.value = '');
+        }else{
+            ans1cal.innerHTML = Calorie1.toLocaleString("en-US");
+            ans2cal.innerHTML = Calorie2.toLocaleString("en-US");
+            ans3cal.innerHTML = Calorie3.toLocaleString("en-US");
+        }
+    });
+    // error alert done ..........below remaining
+
+    calculateBtnpro.addEventListener("click", () => {
+
+        let activityproValue = document.querySelector(".hlt-cal .pro-calculator form input[name='activity']:checked").value;
+        let Protein1 = calculate1Protein(weightpro.value, agepro.value, activityproValue);
+        let Protein2 = calculate2Protein(weightpro.value, agepro.value, activityproValue);
+        let Protein3 = calculate3Protein(weightpro.value, agepro.value, activityproValue);
+
+        if(parseInt(weightpro.value).toLocaleString("en-US")=='NaN'||parseInt(agepro.value).toLocaleString("en-US")=='NaN'){
+            alert("bad inputs")
+            inputs.forEach(input => input.value = '');
+        }else{
+            ans1pro.innerHTML = Protein1.toLocaleString("en-US");
+            ans2pro.innerHTML = Protein2.toLocaleString("en-US");
+            ans3pro.innerHTML = Protein3.toLocaleString("en-US");
+        }
+
+    });
+
+    calculateBtncar.addEventListener("click", () => {
+
+        let gendercarValue = document.querySelector(".hlt-cal .car-calculator form input[name='gender']:checked").value;//Carbs
+        let activitycarValue = document.querySelector(".hlt-cal .car-calculator form input[name='activity']:checked").value;
+        let Carbs1 = calculate1Carbs(weightcar.value, height1car.value, height2car.value, agecar.value, gendercarValue, activitycarValue);
+        let Carbs2 = calculate2Carbs(weightcar.value, height1car.value, height2car.value, agecar.value, gendercarValue, activitycarValue);
+        let Carbs3 = calculate3Carbs(weightcar.value, height1car.value, height2car.value, agecar.value, gendercarValue, activitycarValue);
+        
+        if(Carbs1.toLocaleString("en-US")=='NaN'||Carbs2.toLocaleString("en-US")=='NaN'||Carbs3.toLocaleString("en-US")=='NaN'){
+            alert('Bad Inputs ')
+            inputs.forEach(input => input.value = '');
+        }else{
+            ans1car.innerHTML = Carbs1.toLocaleString("en-US");
+            ans2car.innerHTML = Carbs2.toLocaleString("en-US");
+            ans3car.innerHTML = Carbs3.toLocaleString("en-US");
+        }
+    });
+
+    calculateBtnfat.addEventListener("click", () => {
+
+        let genderfatValue = document.querySelector(".hlt-cal .fat-calculator form input[name='gender']:checked").value;//Fat
+        let activityfatValue = document.querySelector(".hlt-cal .fat-calculator form input[name='activity']:checked").value;
+        let Fat1 = calculate1Fat(weightfat.value, height1fat.value, height2fat.value, agefat.value, genderfatValue, activityfatValue);
+        let Fat2 = calculate2Fat(weightfat.value, height1fat.value, height2fat.value, agefat.value, genderfatValue, activityfatValue);
+        let Fat3 = calculate3Fat(weightfat.value, height1fat.value, height2fat.value, agefat.value, genderfatValue, activityfatValue);
+        
+        if(Fat1.toLocaleString("en-US")=='NaN'||Fat2.toLocaleString("en-US")=='NaN'||Fat3.toLocaleString("en-US")=='NaN'){
+            alert('Bad Inputs ')
+            inputs.forEach(input => input.value = '');
+        }else{
+            ans1fat.innerHTML = Fat1.toLocaleString("en-US");
+            ans2fat.innerHTML = Fat2.toLocaleString("en-US");
+            ans3fat.innerHTML = Fat3.toLocaleString("en-US");
+        }
+    });
+
+    calculateBtnwat.addEventListener("click", () => {
+        let Water = calculateWater(weightwat.value, agewat.value);
+        if(parseInt(agewat.value).toLocaleString("en-US")=='NaN'||Water.toLocaleString("en-US")=='NaN'){
+            alert("bad inputs")
+            inputs.forEach(input => input.value = '');
+        }else{
+            answat.innerHTML = Water;
+        }
+    });
+
+    calculateBtnbfat.addEventListener("click", () => {
+
+        let genderbfatValue = document.querySelector(".hlt-cal .bfat-calculator form input[name='gender']:checked").value;//BMR
+        let Bfat = calculateBfat(weightbfat.value, agebfat.value, genderbfatValue, chestbfat.value, abdobfat.value, mthighbfat.value, tribfat.value, suprabfat.value, femthighbfat.value);
+        if(parseInt(weightbfat.value).toLocaleString("en-US")=='NaN'||Bfat.toLocaleString("en-US")=='NaN'){
+            alert('Bad Inputs')
+            inputs.forEach(input => input.value = '');
+            let ClearBFatResult = document.querySelector(".hlt-cal .bfat-calculator .result .result-message .ans");
+            ansbfat.innerHTML='0%'
+        }else{
+            ansbfat.innerHTML = `${Bfat.toLocaleString("en-US")}%`;
+            let fat_weight=(((parseInt(weightbfat.value))*Bfat)/100)
+            console.log(parseInt(weightbfat.value))
+            let reduceResult=document.getElementById('fat_reduce')
+            reduceResult.innerHTML=`You have ${fat_weight.toFixed(2)} kg of body fat.`
+            // reduceResult.innerHTML='hello'
+            
+        }
+    });
+
+</script>
+
+
+{% endblock body %}

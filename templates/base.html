@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{% endblock title %} | Shyno Fitness</title>
+    <link rel="icon" type="image/png" href="static/img/icon.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" referrerpolicy="no-referrer">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/footers/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap" rel="stylesheet">    
+    <script src="https://kit.fontawesome.com/5635c7052d.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    
+
+    <script>
+        function text(x) {
+            if (x == 0) document.getElementById("maledata").style.display = "block";
+            else document.getElementById("maledata").style.display = "none";
+
+            return;
+        }
+    </script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-black py-0">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/"><img src="static/img/web_logo.png" style="width:250px"></a>
+            <button class="checkbtn navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-stream" style="color: #ff0000;"></i>
+            {% comment %} <span class="navbar-toggler-icon"></span> {% endcomment %}
+          </button>
+
+            <div class="collapse navbar-collapse justify-content-center justify-content-md-between" id="navbarSupportedContent">
+                <ul class="navbar-nav mb-lg-0">
+                    <li class="nav-item">
+                        <a class="{% if request.path == '/' %}active text-white{% endif %}" href="/">Home</a>
+                    </li>
+                    {% if request.path == '/' %}
+                    <li class="nav-item">
+                        <a href="#ser_link">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#about_link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#contact">Contact</a>
+                    </li>
+                    {% endif %}
+                    <li class="nav-item">
+                        <a class="{% if request.path == '/feedback' %}active text-white{% endif %}" href="/feedback">Feedback</a>
+                    </li>
+                    <li class="nav-item py-2 mt-lg-0">
+                        <a class="main-btn {% if request.path == '/healthcal' %}active text-white{% endif %}" href="/healthcal">&nbsp;Health Calculator&nbsp;</a>
+                    </li>
+                </ul>
+                <ul class="social d-flex justify-content-center">
+                    <li><a href="#"><i class="fa-brands fa-facebook-square"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- hidden nav starts -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black py-0">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/"><img src="static/img/web_logo.png" style="width:250px"></a>
+            <button class="checkbtn navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-stream text-danger"></i>
+            {% comment %} <span class="navbar-toggler-icon"></span> {% endcomment %}
+          </button>
+
+            <div class="collapse navbar-collapse justify-content-center justify-content-md-between" id="navbarSupportedContent">
+                <ul class="navbar-nav mb-lg-0">
+                    <li class="nav-item">
+                        <a class="{% if request.path == '/' %}active text-white{% endif %}" href="/">Home</a>
+                    </li>
+                    {% if request.path == '/' %}
+                    <li class="nav-item">
+                        <a href="#ser_link">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#about_link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#contact">Contact</a>
+                    </li>
+                    {% endif %}
+                    <li class="nav-item">
+                        <a class="{% if request.path == '/feedback' %}active text-white{% endif %}" href="/feedback">Feedback</a>
+                    </li>
+                    <li class="nav-item py-2 mt-lg-0">
+                        <a class="main-btn {% if request.path == '/healthcal' %}active text-white{% endif %}" href="/healthcal">&nbsp;Health Calculator&nbsp;</a>
+                    </li>
+                </ul>
+                <ul class="social d-flex justify-content-center">
+                    <li><a href="#"><i class="fa-brands fa-facebook-square"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- hidden nav ends -->
+
+    <div class="container-fluid" id="upcoming">
+        <div class="row w-100">
+            <div class="col col-12 col-md-8 d-flex align-items-center justify-content-center">
+                <h5 class=" text-center " style="color: rgb(130, 7, 7);">Coming Soon ! Near Palsanda Bus Stand</h5>
+            </div>
+            <div class="col col-12 col-md-4 d-flex justify-content-center">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSeFg8REaXJgY6_GMRF_pk5dFKyoT8JA57Il09mMEfvJMQg-UA/viewform?usp=sf_link" target="_blank" class="text-decoration-none"><button class=" btn btn-primary">Register For New Update</button></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- hidden upcoming starts -->
+    <div class="container-fluid upcoming-hidden">
+        <div class="row w-100">
+            <div class="col col-12 col-md-8 d-flex align-items-center justify-content-center">
+                <h5 class=" text-center " style="color: rgb(130, 7, 7);">Coming Soon ! Near Palsanda Bus Stand</h5>
+            </div>
+            <div class="col col-12 col-md-4 d-flex justify-content-center">
+                <a href="#" class="text-decoration-none"><button class=" btn btn-primary">Register For New Update</button></a>
+            </div>
+        </div>
+    </div>
+    <!-- hidden upcoming ends -->
+
+    <!-- {% if messages %} {% for message in messages %}
+
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show my-0" role="alert">
+        {{ message }} {% comment %} <strong>Holy guacamole!</strong> You should check in on some of those fields below. {% endcomment %}
+        <button type="button" class="btn-close" data-dismiss="btn-bs-alert" aria-label="Close">
+          {% comment %} <span aria-hidden="false">&times;</span> {% endcomment %}
+        </button>
+    </div>
+    {% endfor %} {% endif %}  -->
+
+    {% block body %}{% endblock body %}
+
+    <footer class="bg-black text-white pt-2 pb-0 border-top">
+        <div class="row text-center" style="width:100%;--bs-gutter-x: .3rem;">
+
+            <div class="col-md-2 col-lg-2 col-xl-2 mr-2">
+                <a href="http://shyno.in">
+                    <img src="static/img/shyno.png" width=auto height=50px></a>
+                <p style="font-size:12px">Designed by Shyno</p>
+            </div>
+
+            <div class="col-md-5 col-lg-2 col-xl-4 mx-auto">
+                <img class="rounded-circle" width=50px height=50px src="static/img/icon.png">
+                <p style="font-size:12px">Copyright &copy;2022 All rights reserved by: <strong style="color:#ff0000">Shyno Fitness</strong></p>
+            </div>
+
+            <div class="col-md-2 col-lg-2">
+                <div class="text-center text-md-right">
+                    <h5 style="font-color:white">Follow us on:</h5>
+                    <ul class="list-unstyled list-inline">
+                        <li class="list-inline-item"><a href="#"><i class="fa-brands fa-facebook-square"></i></a></li>
+                        <li class="list-inline-item"><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
+
+<style>
+    body {
+        overflow-x: hidden;
+    }
+    
+    nav ul li {
+        display: inline-block;
+        margin: 10px 8px;
+    }
+    
+    nav ul li a {
+        color: gray;
+        font-size: 17px;
+        text-decoration: none;
+    }
+    
+    .navbar-nav li {
+        display: flex;
+    }
+    
+    .navbar-nav a {
+        margin: auto;
+    }
+    
+    .main-btn {
+        display: inline-block;
+        color: gray;
+        border-radius: 10px;
+        transition: all .4s ease-in-out;
+        border: 1px solid white;
+        font-weight: 500;
+        font-size: 16px;
+        text-decoration: none;
+    }
+    
+    .main-btn:hover {
+        background-color: #ff0000;
+        border-color: #ff0000;
+        color: white;
+    }
+    
+    .nav-item {
+        transition: 0.5s;
+        margin-bottom: 0px;
+    }
+    .upcoming-hidden{
+        display: flex;
+        align-items: center;
+        height: 72px;
+    }
+    
+    #upcoming {
+        position: fixed;
+        display: flex;
+        align-items: center;
+        height: 72px;
+        z-index: 100;
+        background-color: rgb(234, 240, 61);
+    }
+    
+    #upcoming h5,.upcoming-hidden h5 {
+        font-size: 30px;
+        letter-spacing: 3px;
+    }
+    
+    /* @media screen and (max-width:1536px) {
+        #upcoming {
+            top: 9vh;
+        }
+    }
+    
+    @media screen and (max-width:1496px) {
+        #upcoming {
+            top: 10vh;
+        }
+    } */
+    
+    @media screen and (max-width:1166px) {
+        #upcoming h5,.upcoming-hidden h5 {
+            font-size: 25px;
+        }
+    }
+    
+    @media screen and (max-width:984px) {
+        #upcoming h5,.upcoming-hidden h5 {
+            font-size: 22px;
+        }
+    }
+    
+    @media screen and (max-width:874px) {
+        #upcoming h5,.upcoming-hidden h5 {
+            font-size: 19px;
+        }
+    }
+    
+    @media screen and (max-width:505px) {
+        #upcoming,.upcoming-hidden {
+            height: 100px;
+        }
+    }
+    
+    a.active {
+        color: white;
+        font-weight: bold;
+    }
+    
+    a:hover {
+        color: #ff0000;
+    }
+    
+    .social {
+        padding-right: 20px;
+        margin-bottom: 0px;
+    }
+    
+    .fa-brands {
+        font-size: 35px;
+        text-decoration: none;
+        margin-right: 5px;
+        color: white;
+        transition: 0.5s;
+    }
+    
+    .fa-brands:hover {
+        color: #ff0000;
+    }
+    
+    .checkbtn {
+        color: #ff0000;
+    }
+    
+    footer {
+        z-index: 100;
+        width: 100vw;
+    }
+</style>
